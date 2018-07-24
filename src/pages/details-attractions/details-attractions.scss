@@ -1,0 +1,67 @@
+page-details-attractions {
+  $black-overlay: rgba(0, 0, 0, .2);
+  $text-color: #003545;
+  $banner-text-color: white;
+
+
+  .swiper-slide img {
+    width: 100%;
+    height: 75vw;
+    object-fit: cover;
+    object-position: center;
+  }
+  #profile-bg {
+    position: fixed;
+  }
+  #profile-image {
+    display: block;
+    border-radius: 100px;
+    border: 1px solid gray;
+    width: 128px;
+    height: 128px;
+    margin: 30px auto 0;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
+  }
+  #description {
+    font-size: 3rem;
+    color: $text-color;
+  }
+  #profile-description {
+    color: $text-color;
+    font-size: .8rem;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  #content {
+    position: relative;
+    margin-top: 250px;
+    background-color: #fbfae1;
+    box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.4);
+    padding-top: 250px;
+    height: 110%;
+  }
+  #profile-info {
+    position: absolute;
+    top: -95px;
+    width: 100%;
+    z-index: 2;
+    padding-left: 1rem;
+  }
+  .toolbar-background {
+    border-color: transparent !important;
+    background: $black-overlay !important;
+  }
+  .bar-button,
+  .toolbar-title {
+    color: $banner-text-color;
+  }
+  .Icone {
+    border-radius: 50%;
+    background: #3c6562;
+    font-size: 2rem;
+    color: #FFF
+  }
+  .scroll-content {
+    padding-top: 0 !important;
+  }
+}

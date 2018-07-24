@@ -1,3 +1,40 @@
 page-home {
-
+  .HeaderAzul{
+    background: #326765;
+    background: linear-gradient(90deg, #326765 0%, #7da87b 91%, #7da87b 100%);
+  }
+  .searchbar-Azul {
+    background: #326765;
+    background: linear-gradient(90deg, #326765 0%, #7da87b 91%, #7da87b 100%);
+  }
+  .white{
+    color:white;
+  }
+  [card-image] {
+    position: relative;
+    &::before {
+      z-index: 3;
+    }
+    img {
+      width: 100%;
+      height: 25vw;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 5px;
+    }
+    [card-title] {
+      color: theme-colors('textColors', 'accent-first') !important;
+      position: absolute;
+      left: 10px;
+      bottom: 5px;
+      z-index: 999;
+    }
+  }
+  .margin-top {
+    margin-top: 5px;
+  }
+  .Icone{
+    font-size: 1rem;
+    color: #003545;
+  }
 }

@@ -1,0 +1,75 @@
+<!-- <ion-header no-border>
+  <ion-navbar>
+    <ion-title>Attractions Details</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Like()" >
+        <ion-icon name="md-heart" *ngIf='like'></ion-icon>
+        <ion-icon item-right name="ios-heart-outline" *ngIf='!like'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header> -->
+<ion-header no-border>
+  <ion-navbar>
+    <ion-buttons left>
+      <button navPop ion-button icon-only>
+        <ion-icon color="light" name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Attractions Details
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Like()">
+        <ion-icon name="md-heart" *ngIf='like'></ion-icon>
+        <ion-icon item-right name="ios-heart-outline" *ngIf='!like'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content white-background fullscreen elestic-header *ngIf="item != null">
+  <ion-row id="profile-bg">
+    <ion-slides pager="true">
+      <ion-slide *ngFor='let i of item.gallery'>
+        <img (click)="mostrarImagem(data)" *ngIf="i.image != ''" [src]="i.image" />
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+  <div id="content">
+    <div id="profile-info">
+      <img id="profile-image" src="assets/imgs/profile.png">
+      <h3 text-center id="profile-name">Flaviano Redressa</h3>
+      <span text-uppercase text-left id="description">{{item.title}}</span>
+      <div> 
+        <p padding-left text-uppercase>
+          <ion-icon name="ios-pin" item-start class="Icone"></ion-icon>
+          <b>{{item.destinyCity}} - {{item.destinyState}}</b>
+        <p>
+        <p padding-left text-uppercase>
+          <ion-icon name="md-time" item-start class="Icone"></ion-icon>
+         <b> {{item.duration}} Hours</b>
+        <p>
+        <p padding-left text-uppercase>
+            <ion-icon name="ios-people" item-start class="Icone"></ion-icon>
+            UP TO <b> {{item.travellers}} TRAVELLERS</b>
+        <p>
+        <p padding-left text-uppercase>
+            <ion-icon name="ios-stats" item-start class="Icone"></ion-icon>
+             <b>DIFFICULTY LEVEL </b>  {{item.difficulty}}
+        <p>
+        <p padding-left text-uppercase>
+            <ion-icon name="logo-usd" item-start class="Icone"></ion-icon>
+              <b>{{item.price/100 | currency:'USD'}} </b> Per Person
+        <p>
+      </div>
+      <hr>
+      <p text-uppercase no-margin padding-left text-left id="description">YOUR LOCAL EXPERT</p>
+      <p text-uppercase padding id="profile-description">{{item.localExpert}}</p>
+      <hr>
+      <p text-uppercase no-margin padding-left  id="description">The Adventure</p>
+      <p text-uppercase padding  id="profile-description">{{item.description}}</p>
+      <hr>
+
+    </div>
+  </div>
+</ion-content>

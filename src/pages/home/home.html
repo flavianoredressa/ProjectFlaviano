@@ -1,17 +1,34 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <ion-list no-margin>
+    <ion-list-header class="HeaderAzul" header-bcg no-padding no-margin no-lines>
+      <h1 padding-left class="white">ADVENTURES</h1>
+      <ion-searchbar (ionInput)="getAdventure($event)" class="searchbar-Azul" placeholder="Search Adventures"></ion-searchbar>
+    </ion-list-header>
+  </ion-list>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-6 *ngFor="let item of data;let i = index">
+        <ion-card text-left (click)="Details(item)">
+          <div card-image>
+            <img src="{{item.gallery[0].image}}" />
+            <h2 card-title>{{item.destinyCity}} - {{item.destinyState}}</h2>
+          </div>
+        </ion-card>
+        <div padding-left (click)="Details(item)">
+          <h1 card-subtitle text-uppercase class="margin-top">{{item.adventures}}</h1>
+          <p no-margin card-body-text class="margin-top" *ngIf="item.title.length < 40">{{item.title}}</p>
+          <p no-margin card-body-text class="margin-top" *ngIf="item.title.length > 40">{{item.title.substring(0, 40)}}</p>
+          <p no-margin class="margin-top">{{item.price/100 | currency:'USD'}}</p>
+          <ion-icon name="ios-star" item-start class="Icone"></ion-icon>
+          <ion-icon name="ios-star" item-start class="Icone"></ion-icon>
+          <ion-icon name="ios-star" item-start class="Icone"></ion-icon>
+          <ion-icon name="ios-star" item-start class="Icone"></ion-icon>
+          <ion-icon name="ios-star-outline" item-start class="Icone"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+    <button ion-button margin-bottom margin-top button-clear-outline round outline small *ngIf="data.length > 0" (click)="GetMore()">
+      See More
+    </button>
+  </ion-grid>
 </ion-content>
